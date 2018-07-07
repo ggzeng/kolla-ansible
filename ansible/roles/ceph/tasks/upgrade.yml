@@ -8,7 +8,7 @@
     name: client.admin
     caps: "{{ ceph_client_admin_keyring_caps }}"
   run_once: True
-  delegate_to: "{{ groups['ceph-mon'][0] }}"
+  delegate_to: "{{ groups['ceph-mon-old'][0] }}"
 
 - include: start_mons.yml
   when: inventory_hostname in groups['ceph-mon']
