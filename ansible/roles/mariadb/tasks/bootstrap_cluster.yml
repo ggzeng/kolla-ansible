@@ -5,7 +5,7 @@
     common_options: "{{ docker_common_options }}"
     detach: False
     environment:
-      KOLLA_BOOTSTRAP:
+      KOLLA_BOOTSTRAP: "True"
       KOLLA_CONFIG_STRATEGY: "{{ config_strategy }}"
       DB_ROOT_PASSWORD: "{{ database_password }}"
       DB_MAX_TIMEOUT: "{{ database_max_timeout }}"
