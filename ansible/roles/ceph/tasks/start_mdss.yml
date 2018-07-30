@@ -23,7 +23,7 @@
   command: docker exec ceph_mon ceph auth get-or-create mds.{{ hostvars[item]['inventory_hostname'] }} mds 'allow ' osd 'allow *' mon 'allow rwx'
   register: ceph_mds_auth
   run_once: true
-  delegate_to: "{{ groups['ceph-mon-old'][0] }}"
+  delegate_to: "{{ groups['ceph-mon'][0] }}"
   changed_when: false
   with_items: "{{ groups['ceph-mds'] }}"
 

@@ -6,8 +6,8 @@
 
 - name: Set delegate_host                               
   set_fact:                                             
-    delegate_host: "{{ groups['ceph-mon-old'][0] }}"    
-  when: inventory_hostname not in groups['ceph-mon-old']
+    delegate_host: "{{ groups['ceph-mon'][0] }}"    
+  when: inventory_hostname not in groups['ceph-mon']
 
 - include: distribute_keyrings.yml
 
@@ -27,7 +27,7 @@
     name: client.admin
     caps: "{{ ceph_client_admin_keyring_caps }}"
   run_once: True
-  delegate_to: "{{ groups['ceph-mon-old'][0] }}"
+  delegate_to: "{{ groups['ceph-mon'][0] }}"
 
 - include: bootstrap_osds.yml
   when: inventory_hostname in groups['ceph-osd']
