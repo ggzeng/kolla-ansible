@@ -32,4 +32,4 @@
 - name: Flush handlers
   meta: flush_handlers
 
-- include: simple_cell_setup.yml
+#- include: simple_cell_setup.yml
