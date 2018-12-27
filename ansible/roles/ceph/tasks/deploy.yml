@@ -4,6 +4,11 @@
 - include_tasks: bootstrap_mons.yml
   when: inventory_hostname in groups['ceph-mon']
 
+- name: Set delegate_host
+  set_fact:
+    delegate_host: "{{ groups['ceph-mon'][0] }}"
+  when: inventory_hostname not in groups['ceph-mon']
+
 - include_tasks: distribute_keyrings.yml
 
 - include_tasks: start_mons.yml
