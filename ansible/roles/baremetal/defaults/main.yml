@@ -10,7 +10,7 @@ customize_etc_hosts: True
 
 create_kolla_user: True
 
-enable_host_ntp: True
+enable_host_ntp: False
 
 change_selinux: True
 
@@ -25,11 +25,8 @@ debian_pkg_install:
  - ntp
 
 redhat_pkg_install:
- - epel-release
- - docker-engine-1.12.0
  - git
  - python-setuptools
- - ntp
 
 ubuntu_pkg_removals:
  - lxd
